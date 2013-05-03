@@ -1,10 +1,6 @@
 # Dotfiles
 > Prakhar does dotfiles!
 
-## Features
-- Nice shortcuts for the `fasd` command-line productivity booster
-- Fancy sleep and shutdown scripts!
-
 ## Looks
 ![Image](https://dl.dropboxusercontent.com/u/9555677/dotfiles/terminal.png)
 ![Image](https://dl.dropboxusercontent.com/u/9555677/dotfiles/vim.png)

@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <gconf>
 	<entry name="use_theme_background" mtime="1367534101" type="bool" value="false"/>
-	<entry name="use_theme_colors" mtime="1367581078" type="bool" value="false"/>
+	<entry name="use_theme_colors" mtime="1367592704" type="bool" value="false"/>
 	<entry name="bold_color_same_as_fg" mtime="1367534101" type="bool" value="true"/>
-	<entry name="bold_color" mtime="1367581078" type="string">
+	<entry name="bold_color" mtime="1367592704" type="string">
 		<stringvalue>#EE00EE00EE00</stringvalue>
 	</entry>
-	<entry name="foreground_color" mtime="1367581078" type="string">
+	<entry name="foreground_color" mtime="1367592704" type="string">
 		<stringvalue>#EE00EE00EE00</stringvalue>
 	</entry>
-	<entry name="background_color" mtime="1367581078" type="string">
+	<entry name="background_color" mtime="1367592704" type="string">
 		<stringvalue>#000000000000</stringvalue>
 	</entry>
-	<entry name="palette" mtime="1367581078" type="string">
+	<entry name="palette" mtime="1367592704" type="string">
 		<stringvalue>#000000000000:#330033003300:#550055005500:#BB00BB00BB00:#DD00DD00DD00:#EE00EE00EE00:#FF55FF55FF55:#FFFFFFFFFFFF:#FFBB00112200:#FFCC66DD2244:#FFDDAA333311:#AA11CC665599:#7766CC77BB77:#66FFBB33DD22:#DD338811CC33:#BBEE664433CC</stringvalue>
 	</entry>
-	<entry name="visible_name" mtime="1367581078" type="string">
+	<entry name="visible_name" mtime="1367592704" type="string">
 		<stringvalue>Base 16 Bright</stringvalue>
 	</entry>
 </gconf>
