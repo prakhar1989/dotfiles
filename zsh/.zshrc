@@ -20,7 +20,7 @@ alias gl="glances"
 alias gn="cowsay 'Good Knight, hacker' && sleep 3 && sudo shutdown -h now"
 alias cya="cowsay 'Cya in a while' && sleep 3 && sudo pm-suspend"
 
-plugins=(git rails3 bundler prakhar github)
+plugins=(git prakhar github)
 
 source $ZSH/oh-my-zsh.sh
 
