@@ -24,6 +24,6 @@ Icon?
 
 # cmus
 # ignore library and playlist files
-cmus/*.pl
-cmus/cache
-cmus/*history
+cmus/.cmus/*.pl
+cmus/.cmus/cache
+cmus/.cmus/*history
