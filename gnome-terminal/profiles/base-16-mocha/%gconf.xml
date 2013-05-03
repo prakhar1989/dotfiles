@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="font" mtime="1367581078" type="string">
+		<stringvalue>Ubuntu Mono 11</stringvalue>
+	</entry>
+	<entry name="use_system_font" mtime="1367581078" type="bool" value="false"/>
+	<entry name="use_theme_background" mtime="1367533872" type="bool" value="false"/>
+	<entry name="use_theme_colors" mtime="1367581078" type="bool" value="false"/>
+	<entry name="bold_color_same_as_fg" mtime="1367533872" type="bool" value="true"/>
+	<entry name="bold_color" mtime="1367581078" type="string">
+		<stringvalue>#DD00CC88CC66</stringvalue>
+	</entry>
+	<entry name="foreground_color" mtime="1367581078" type="string">
+		<stringvalue>#DD00CC88CC66</stringvalue>
+	</entry>
+	<entry name="background_color" mtime="1367581078" type="string">
+		<stringvalue>#33BB33222288</stringvalue>
+	</entry>
+	<entry name="palette" mtime="1367581078" type="string">
+		<stringvalue>#33BB33222288:#553344663366:#664455224400:#77EE770055AA:#BB88AAFFAADD:#DD00CC88CC66:#EE99EE11DDDD:#FF55EEEEEEBB:#CCBB66007777:#DD2288BB7711:#FF44BBCC8877:#BBEEBB5555BB:#77BBBBDDAA44:#88AABB33BB55:#AA8899BBBB99:#BBBB99558844</stringvalue>
+	</entry>
+	<entry name="visible_name" mtime="1367581078" type="string">
+		<stringvalue>Base 16 Mocha</stringvalue>
+	</entry>
+</gconf>

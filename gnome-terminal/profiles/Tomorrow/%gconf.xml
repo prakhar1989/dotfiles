@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="use_theme_background" mtime="1360866359" type="bool" value="false"/>
+	<entry name="use_theme_colors" mtime="1367581078" type="bool" value="false"/>
+	<entry name="bold_color_same_as_fg" mtime="1367581078" type="bool" value="false"/>
+	<entry name="bold_color" mtime="1367581078" type="string">
+		<stringvalue>#8A8ABEBEB7B7</stringvalue>
+	</entry>
+	<entry name="foreground_color" mtime="1367581078" type="string">
+		<stringvalue>#C5C5C8C8C6C6</stringvalue>
+	</entry>
+	<entry name="background_color" mtime="1367581078" type="string">
+		<stringvalue>#1D1D1F1F2121</stringvalue>
+	</entry>
+	<entry name="palette" mtime="1367581078" type="string">
+		<stringvalue>#000000000000:#919122222626:#777789890000:#AEAE7B7B0000:#1D1D25259494:#68682A2A9B9B:#2B2B66665151:#929295959393:#666666666666:#CCCC66666666:#B5B5BDBD6868:#F0F0C6C67474:#8181A2A2BEBE:#B2B29494BBBB:#8A8ABEBEB7B7:#ECECEBEBECEC</stringvalue>
+	</entry>
+	<entry name="visible_name" mtime="1367581078" type="string">
+		<stringvalue>Tomorrow</stringvalue>
+	</entry>
+</gconf>
