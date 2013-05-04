@@ -2,26 +2,26 @@
 <gconf>
 	<entry name="login_shell" mtime="1367592753" type="bool" value="false"/>
 	<entry name="use_custom_command" mtime="1367592749" type="bool" value="false"/>
-	<entry name="font" mtime="1367592705" type="string">
+	<entry name="font" mtime="1367596891" type="string">
 		<stringvalue>Ubuntu Mono 11</stringvalue>
 	</entry>
-	<entry name="use_system_font" mtime="1367592705" type="bool" value="false"/>
+	<entry name="use_system_font" mtime="1367596891" type="bool" value="false"/>
 	<entry name="use_theme_background" mtime="1367535705" type="bool" value="false"/>
-	<entry name="use_theme_colors" mtime="1367592705" type="bool" value="false"/>
-	<entry name="bold_color_same_as_fg" mtime="1367592705" type="bool" value="false"/>
-	<entry name="bold_color" mtime="1367592705" type="string">
+	<entry name="use_theme_colors" mtime="1367596891" type="bool" value="false"/>
+	<entry name="bold_color_same_as_fg" mtime="1367596891" type="bool" value="false"/>
+	<entry name="bold_color" mtime="1367596891" type="string">
 		<stringvalue>#CC55CC88CC66</stringvalue>
 	</entry>
-	<entry name="foreground_color" mtime="1367592705" type="string">
+	<entry name="foreground_color" mtime="1367596891" type="string">
 		<stringvalue>#CC55CC88CC66</stringvalue>
 	</entry>
-	<entry name="background_color" mtime="1367592705" type="string">
+	<entry name="background_color" mtime="1367596891" type="string">
 		<stringvalue>#1D1C1F1E2121</stringvalue>
 	</entry>
-	<entry name="palette" mtime="1367592705" type="string">
+	<entry name="palette" mtime="1367596891" type="string">
 		<stringvalue>#11DD11FF2211:#228822AA22EE:#C8C766666666:#996699889966:#BB54BBDC6688:#C8C766666666:#8810AA21BBED:#88A9BBEDBB76:#CCCC66666666:#DDEE993355FF:#FF00CC667744:#BB54BBDC6688:#88A9BBEDBB76:#8811AA22BBEE:#BB229944BBBB:#AA33668855AA</stringvalue>
 	</entry>
-	<entry name="visible_name" mtime="1367592705" type="string">
+	<entry name="visible_name" mtime="1367596891" type="string">
 		<stringvalue>Base 16 Tomorrow</stringvalue>
 	</entry>
 </gconf>

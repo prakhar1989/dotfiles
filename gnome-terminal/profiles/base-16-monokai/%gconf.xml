@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="font" mtime="1367592705" type="string">
+	<entry name="font" mtime="1367596891" type="string">
 		<stringvalue>Ubuntu Mono 11</stringvalue>
 	</entry>
-	<entry name="use_system_font" mtime="1367592705" type="bool" value="false"/>
+	<entry name="use_system_font" mtime="1367596891" type="bool" value="false"/>
 	<entry name="use_theme_background" mtime="1367534222" type="bool" value="false"/>
-	<entry name="use_theme_colors" mtime="1367592705" type="bool" value="false"/>
+	<entry name="use_theme_colors" mtime="1367596891" type="bool" value="false"/>
 	<entry name="bold_color_same_as_fg" mtime="1367534222" type="bool" value="true"/>
-	<entry name="bold_color" mtime="1367592705" type="string">
+	<entry name="bold_color" mtime="1367596891" type="string">
 		<stringvalue>#FF88FF88FF22</stringvalue>
 	</entry>
-	<entry name="foreground_color" mtime="1367592705" type="string">
+	<entry name="foreground_color" mtime="1367596891" type="string">
 		<stringvalue>#FF88FF88FF22</stringvalue>
 	</entry>
-	<entry name="background_color" mtime="1367592705" type="string">
+	<entry name="background_color" mtime="1367596891" type="string">
 		<stringvalue>#227722882222</stringvalue>
 	</entry>
-	<entry name="palette" mtime="1367592705" type="string">
+	<entry name="palette" mtime="1367596891" type="string">
 		<stringvalue>#227722882222:#338833883300:#4499448833EE:#7755771155EE:#AA5599FF8855:#FF88FF88FF22:#FF55FF44FF11:#FF99FF88FF55:#FF9922667722:#FFDD997711FF:#FF44BBFF7755:#AA66EE2222EE:#AA11EEFFEE44:#6666DD99EEFF:#AAEE8811FFFF:#CCCC66663333</stringvalue>
 	</entry>
-	<entry name="visible_name" mtime="1367592705" type="string">
+	<entry name="visible_name" mtime="1367596891" type="string">
 		<stringvalue>Base 16 Monokai</stringvalue>
 	</entry>
 </gconf>
