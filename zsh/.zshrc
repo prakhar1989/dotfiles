@@ -57,3 +57,4 @@ rvm use
 
 # for git
 alias gitcls="git rm -r --cached ."
+alias gpu="git push -u origin master"
