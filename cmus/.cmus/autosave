@@ -5,31 +5,42 @@ set altformat_title=%f
 set altformat_trackwin= %f%= %d 
 set auto_reshuffle=true
 set buffer_seconds=10
+set color_cmdline_attr=default
 set color_cmdline_bg=234
 set color_cmdline_fg=255
+set color_cur_sel_attr=default
 set color_error=109
 set color_info=109
 set color_separator=234
+set color_statusline_attr=default
 set color_statusline_bg=235
 set color_statusline_fg=139
+set color_titleline_attr=default
 set color_titleline_bg=235
 set color_titleline_fg=222
+set color_win_attr=default
 set color_win_bg=234
 set color_win_cur=222
+set color_win_cur_sel_attr=default
 set color_win_cur_sel_bg=236
 set color_win_cur_sel_fg=222
 set color_win_dir=109
 set color_win_fg=255
+set color_win_inactive_cur_sel_attr=default
 set color_win_inactive_cur_sel_bg=236
 set color_win_inactive_cur_sel_fg=139
+set color_win_inactive_sel_attr=default
 set color_win_inactive_sel_bg=236
 set color_win_inactive_sel_fg=139
+set color_win_sel_attr=default
 set color_win_sel_bg=143
 set color_win_sel_fg=235
+set color_win_title_attr=default
 set color_win_title_bg=235
 set color_win_title_fg=109
 set confirm_run=true
 set continue=true
+set device=/dev/cdrom
 set display_artist_sort_name=false
 set dsp.alsa.device=
 set dsp.ao.buffer_size=16384
@@ -42,7 +53,9 @@ set format_playlist_va= %-25%A %3n. %t (%a)%= %y %d
 set format_title=%a - %l - %t (%y)
 set format_trackwin=%3n. %t%= %y %d 
 set format_trackwin_va=%3n. %t (%a)%= %y %d 
+set icecast_default_charset=ISO-8859-1
 set id3_default_charset=ISO-8859-1
+set input.cdio.cddb_url=freedb.freedb.org:8880
 set lib_sort=albumartist date album discnumber tracknumber title filename
 set mixer.alsa.channel=
 set mixer.alsa.device=
@@ -58,14 +71,18 @@ set replaygain=disabled
 set replaygain_limit=true
 set replaygain_preamp=6.000000
 set resume=false
+set scroll_offset=2
 set set_term_title=true
+set show_current_bitrate=false
 set show_hidden=false
 set show_remaining_time=false
 set shuffle=false
+set skip_track_info=false
 set smart_artist_sort=true
 set softvol=false
 set softvol_state=0 0
 set status_display_program=
+set wrap_search=true
 bind browser backspace browser-up
 bind browser i toggle show_hidden
 bind browser space win-activate

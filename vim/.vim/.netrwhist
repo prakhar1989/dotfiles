@@ -1,11 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/prakhar/.gconf/apps/gnome-terminal/profiles'
-let g:netrw_dirhist_2='/home/prakhar/.dotfiles/.git'
-let g:netrw_dirhist_3='/home/prakhar/Code'
-let g:netrw_dirhist_4='/home/prakhar/.dotfiles/zsh/.oh-my-zsh/plugins'
-let g:netrw_dirhist_5='/home/prakhar/.dotfiles'
-let g:netrw_dirhist_6='/home/prakhar/.dotfiles/zsh'
-let g:netrw_dirhist_7='/home/prakhar/.dotfiles/zsh/.oh-my-zsh'
-let g:netrw_dirhist_8='/home/prakhar/.dotfiles/zsh/.oh-my-zsh/plugins'
-let g:netrw_dirhist_9='/home/prakhar/.dotfiles/zsh/.oh-my-zsh/plugins/battery'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/prakhar/Code/prakhar1989.github.com'

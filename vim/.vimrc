@@ -18,7 +18,7 @@ filetype plugin indent on
 filetype plugin on
 
 "Powerline settings
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 
 "Bind :Q and :W to :q and :w respectively
 command! Q q
@@ -82,7 +82,7 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-set guifont=Ubuntu\ Mono\ 11
+set guifont=Ubuntu\ Mono\ For\ Powerline\ 11
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R

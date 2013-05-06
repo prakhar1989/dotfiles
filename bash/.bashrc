@@ -102,10 +102,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# For RVM:
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-#for t:
-alias t='python ~/Code/stevelosh-t/t.py --task-dir ~/tasks --list tasks'
-echo "Starting Zsh..."
-zsh
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# for rvm
+source /home/prakhar/.rvm/scripts/rvm
