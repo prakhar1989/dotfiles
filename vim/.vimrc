@@ -192,6 +192,9 @@ nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
 "" python syntax-highlight all
 let python_highlight_all=1
 
+"python indentation settings
+autocmd Bufread *.py setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
+
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-R> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
