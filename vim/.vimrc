@@ -100,10 +100,8 @@ endif
 source $VIMRUNTIME/mswin.vim    "allows standard windows copy/paste keystrokes
 behave mswin                    "mouse behavior like windows
 
-function s:mySetupWrapping()
+function Writing()
   set wrap
-  set wrapmargin=2
-  set textwidth=72
   set linebreak
 endfunction
 
@@ -135,15 +133,9 @@ map <leader>n :NERDTreeToggle <cr>
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 "leader mappings
-nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 map <Leader>w <C-w>w
-
-"wrapping
-set wrap
-set textwidth=79
-set formatoptions=qrn1
 
 " Scratch {{{
 
