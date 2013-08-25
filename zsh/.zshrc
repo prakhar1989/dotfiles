@@ -15,10 +15,15 @@ alias ohmyzsh="gvim ~/.oh-my-zsh"
 alias tmuxconfig="gvim ~/.tmux.conf"
 alias dotfiles="cd ~/.dotfiles"
 alias cls="clear"
-alias gn="cowsay 'Cya later, hacker' && sleep 3 && sudo shutdown -h now"
+alias goodnight="cowsay 'Cya later, hacker' && sleep 3 && sudo shutdown -h now"
+alias hibernate="cowsay 'Time to take a nap!' && dbus-send --system --print-reply \
+    --dest="org.freedesktop.UPower" \
+    /org/freedesktop/UPower \
+    org.freedesktop.UPower.Suspend"
 alias cya="cowsay 'Cya in a while' && sleep 3 && sudo pm-suspend"
 alias n='nautilus'
 alias refresh="source ~/.zshrc"
+alias l="ls -a"
 
 # plugins
 # more aliases in the prakhar plugin
@@ -58,3 +63,6 @@ rvm use
 # for git
 alias gitcls="git rm -r --cached ."
 alias gpu="git push -u origin master"
+
+# for srever
+alias server="python -m SimpleHTTPServer"

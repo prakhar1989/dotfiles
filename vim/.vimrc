@@ -66,7 +66,7 @@ set number
 
 "" Whitespace
 set nowrap                      " dont wrap lines
-set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
@@ -100,9 +100,14 @@ endif
 source $VIMRUNTIME/mswin.vim    "allows standard windows copy/paste keystrokes
 behave mswin                    "mouse behavior like windows
 
-function Writing()
+function WritingMode()
+  echo "Writing Mode On"
   set wrap
   set linebreak
+  noremap <buffer> <silent> k gk
+  noremap <buffer> <silent> j gj
+  noremap <buffer> <silent> <Home> g<Home>
+  noremap <buffer> <silent> <End> g<End>
 endfunction
 
 "read .ru files as rb
