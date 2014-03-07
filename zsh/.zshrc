@@ -1,68 +1,56 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-setopt auto_cd
 
-# looks
-ZSH_THEME="robbyrussell"
-autoload -U colors && colors
-setopt correct
-export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r?$reset_color (Yes, No, Abort, Edit) "
-export TERM='xterm-256color'
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="pure"
 
-# aliases
-alias zshconfig="gvim ~/.zshrc"
-alias ohmyzsh="gvim ~/.oh-my-zsh"
-alias tmuxconfig="gvim ~/.tmux.conf"
-alias dotfiles="cd ~/.dotfiles"
-alias cls="clear"
-alias goodnight="cowsay 'Cya later, hacker' && sleep 3 && sudo shutdown -h now"
-alias hibernate="cowsay 'Time to take a nap!' && dbus-send --system --print-reply \
-    --dest="org.freedesktop.UPower" \
-    /org/freedesktop/UPower \
-    org.freedesktop.UPower.Suspend"
-alias cya="cowsay 'Cya in a while' && sleep 3 && sudo pm-suspend"
-alias n='nautilus'
-alias refresh="source ~/.zshrc"
-alias l="ls -a"
+# setting classpaths for java
+export EDITOR='vim'
+export GOPATH="$HOME/Code/gocode"
 
-# plugins
-# more aliases in the prakhar plugin
-plugins=(git prakhar django extract)
+# autojump
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+# Example aliases
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias start_server="python -m SimpleHTTPServer"
+alias almulla="python ~/Code/scripts/almulla.py && open /tmp/almulla.png"
+alias py="python"
+alias ipy="ipython"
+alias c="clear"
+alias g='grep -i'  # Case insensitive grep
+alias f='find . -iname'
+alias ducks='du -cksh * | sort -rn|head -11' # Lists folders and files sizes in the current folder
+alias top='top -o cpu'
+alias systail='tail -f /var/log/system.log'
+alias m='more'
+alias df='df -h'
+alias untar="tar xzfv"
+alias o="open"
+alias gpu="git push -u origin master"
+alias getip="curl ipinfo.io"
+
+# aliases for connecting to the servers
+alias r="~/Code/scripts/rackspace.sh"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# PATH
-export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/Code/julia:/Code/get_shit_done:
+# Customize to your needs...
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
-#for fasd
-eval "$(fasd --init auto)"
-eval "$(fasd --init posix-alias zsh-hook)"
-alias v='f -e vim'
-alias m='f -e mplayer'
-alias o='a -e xdg-open'
+# Editing path for Android
+export PATH=$PATH:/Users/asrinivasan/Code/Android/sdk/tools
+export PATH=$PATH:/Users/asrinivasan/Code/Android/sdk/platform-tools
+export PATH=$PATH:/Users/asrinivasan/Code/Android/apache-ant-1.9.2/bin
 
-# for sublime
-alias nano="subl"
-
-# python
-alias ipy="ipython"
-alias py="python"
-# python - django
-alias django="python manage.py"
-
-# virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Code
-source /usr/local/bin/virtualenvwrapper.sh
-
-# for rvm
-source /home/prakhar/.rvm/scripts/rvm
-# use the latest ruby on load
-rvm use
-
-# for git
-alias gitcls="git rm -r --cached ."
-alias gpu="git push -u origin master"
-
-# for srever
-alias server="python -m SimpleHTTPServer"
+# set VI mode
+bindkey -v
