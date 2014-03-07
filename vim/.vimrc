@@ -82,7 +82,7 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-set guifont=Ubuntu\ Mono\ For\ Powerline\ 11
+set guifont=Source_Code_Pro:h17
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -90,7 +90,7 @@ if has('gui_running')
   set guioptions-=L
   set guioptions-=l
   set guioptions-=m
-  colorscheme base16-tomorrow
+  colorscheme badwolf
 else
   set t_Co=256
   colorscheme mustang
@@ -99,16 +99,6 @@ endif
 "" Commands
 source $VIMRUNTIME/mswin.vim    "allows standard windows copy/paste keystrokes
 behave mswin                    "mouse behavior like windows
-
-function WritingMode()
-  echo "Writing Mode On"
-  set wrap
-  set linebreak
-  noremap <buffer> <silent> k gk
-  noremap <buffer> <silent> j gj
-  noremap <buffer> <silent> <Home> g<Home>
-  noremap <buffer> <silent> <End> g<End>
-endfunction
 
 "read .ru files as rb
 au BufNewFile,BufRead *.ru set filetype=ruby
@@ -133,6 +123,9 @@ let NERDTreeShowBookmarks  = 1
 let NERDChristmasTree = 1
 let NERDTreeWinPos = "left"
 map <leader>n :NERDTreeToggle <cr>
+
+"Bufexplorer
+map <leader><leader>b :BufExplorer
 
 "ACK
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
@@ -211,3 +204,34 @@ endfunc
 
 " Vim slime settings
 let g:slime_target = "tmux"
+
+" SOME SETTINGS FROM HERE - http://dougblack.io/words/a-good-vimrc.html
+
+" language specific commands
+augroup configgroup
+    autocmd!
+    autocmd VimEnter * highlight clear SignColumn
+    autocmd FileType java setlocal listchars=tab:+\ ,eol:-
+    autocmd FileType java setlocal formatprg=par\ -w80\ -T4
+    autocmd FileType ruby setlocal tabstop=2
+    autocmd FileType ruby setlocal shiftwidth=2
+    autocmd FileType ruby setlocal softtabstop=2
+    autocmd FileType ruby setlocal commentstring=#\ %s
+    autocmd FileType python setlocal commentstring=#\ %s
+    autocmd BufEnter *.cls setlocal filetype=java
+    autocmd BufEnter *.zsh-theme setlocal filetype=zsh
+    autocmd BufEnter Makefile setlocal noexpandtab
+    autocmd BufEnter *.sh setlocal tabstop=2
+    autocmd BufEnter *.sh setlocal shiftwidth=2
+    autocmd BufEnter *.sh setlocal softtabstop=2
+    autocmd BufEnter *.markdown setlocal wrap
+    autocmd BufEnter *.markdown setlocal linebreak
+    autocmd BufRead,BufNewFile *.md setlocal spell
+augroup END
+
+" move backup into temp folder
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
