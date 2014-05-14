@@ -67,7 +67,6 @@ set number
 "" Whitespace
 set nowrap                      " dont wrap lines
 set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
-set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
 "" Searching
@@ -82,7 +81,7 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-set guifont=Source_Code_Pro:h17
+set guifont=Source_Code_Pro:h16
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -90,7 +89,7 @@ if has('gui_running')
   set guioptions-=L
   set guioptions-=l
   set guioptions-=m
-  colorscheme badwolf
+  colorscheme base16-tomorrow
 else
   set t_Co=256
   colorscheme mustang
@@ -180,10 +179,6 @@ endfunc
 let g:user_zen_expandabbr_key = '<leader>o'
 let g:use_zen_complete_tag = 1
 
-"" supertab bindings for snipmate goodness
-"" let g:SuperTabMappingForward = '<S-space>'
-"" let g:SuperTabMappingBackward = '<c-S-space>'
-
 "" less to css
 nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
 
@@ -206,7 +201,6 @@ endfunc
 let g:slime_target = "tmux"
 
 " SOME SETTINGS FROM HERE - http://dougblack.io/words/a-good-vimrc.html
-
 " language specific commands
 augroup configgroup
     autocmd!
@@ -235,3 +229,5 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
+
+" set writing mode

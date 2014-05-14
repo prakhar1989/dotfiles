@@ -1,9 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/asrinivasan/Code/POSTMan/PostmanInterceptor/tests/jasmine/spec'
-let g:netrw_dirhist_2='/Users/asrinivasan/Code/POSTMan/PostmanInterceptor/.git'
-let g:netrw_dirhist_3='/Users/asrinivasan/Code/POSTMan/collections-cli/lib'
-let g:netrw_dirhist_4='/Users/asrinivasan/Code/POSTMan/PostmanInterceptor/.git'
-let g:netrw_dirhist_5='/Users/asrinivasan/Code/meteor_apps/waartaa/waartaa/packages'
-let g:netrw_dirhist_6='/Users/asrinivasan/Code/meteor_apps/waartaa/waartaa/.meteor'
-let g:netrw_dirhist_7='/Users/asrinivasan/Code/test.github.com/.git'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/asrinivasan/Code/go-apps/cutecode'
+let g:netrw_dirhist_2='/Users/asrinivasan/Code/go-apps/cutecode/cutecode'
+let g:netrw_dirhist_3='/Users/asrinivasan/Code/go-apps/cutecode/cutecode/models'
+let g:netrw_dirhist_4='/Users/asrinivasan/Code/POSTMan/Newman/src'
