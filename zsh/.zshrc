@@ -9,7 +9,10 @@ ZSH_THEME="pure"
 
 # setting classpaths for java
 export EDITOR='vim'
-export GOPATH="$HOME/Code/gocode"
+
+# settings for golang
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/Code/go
 
 # autojump
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
@@ -17,9 +20,11 @@ export GOPATH="$HOME/Code/gocode"
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+alias be="bundle exec"
 alias start_server="python -m SimpleHTTPServer"
 alias almulla="python ~/Code/scripts/almulla.py && open /tmp/almulla.png"
 alias py="python"
+alias swift="xcrun swift"
 alias ipy="ipython"
 alias c="clear"
 alias g='grep -i'  # Case insensitive grep
@@ -33,6 +38,8 @@ alias untar="tar xzfv"
 alias o="open"
 alias gpu="git push -u origin master"
 alias getip="curl ipinfo.io"
+alias django="python manage.py"
+alias hist='history | grep'
 
 # aliases for connecting to the servers
 alias r="~/Code/scripts/rackspace.sh"
@@ -52,5 +59,13 @@ export PATH=$PATH:/Users/asrinivasan/Code/Android/sdk/tools
 export PATH=$PATH:/Users/asrinivasan/Code/Android/sdk/platform-tools
 export PATH=$PATH:/Users/asrinivasan/Code/Android/apache-ant-1.9.2/bin
 
+#Editing path for Go
+export PATH=$PATH:$GOPATH/bin
+
+#Editing path for GAE
+export PATH=$PATH:$GOPATH/gae
+
 # set VI mode
 bindkey -v
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

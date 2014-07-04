@@ -1,6 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/asrinivasan/Code/go-apps/cutecode'
-let g:netrw_dirhist_2='/Users/asrinivasan/Code/go-apps/cutecode/cutecode'
-let g:netrw_dirhist_3='/Users/asrinivasan/Code/go-apps/cutecode/cutecode/models'
-let g:netrw_dirhist_4='/Users/asrinivasan/Code/POSTMan/Newman/src'
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/asrinivasan/Code/webly/task2/weblyApp/www/js'
+let g:netrw_dirhist_2='/Users/asrinivasan/Code/angular'
+let g:netrw_dirhist_3='/Users/asrinivasan/Code/clojure/fpclojure/i-am-a-horse-in-the-land-of-booleans'
+let g:netrw_dirhist_4='/Users/asrinivasan/Code/angular'
+let g:netrw_dirhist_5='/Users/asrinivasan/Code/skeleton'
+let g:netrw_dirhist_6='/Users/asrinivasan/Code/webly/task2/weblyApp'
+let g:netrw_dirhist_7='/Users/asrinivasan/Work/Guest Checkout/code/first_branch'
+let g:netrw_dirhist_8='/Users/asrinivasan/Work/Guest Checkout/code/first_branch/confirm'
+let g:netrw_dirhist_9='/Users/asrinivasan/Code/clojure/fpclojure/i-am-a-horse-in-the-land-of-booleans/src'

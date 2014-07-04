@@ -66,7 +66,7 @@ set number
 
 "" Whitespace
 set nowrap                      " dont wrap lines
-set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
+set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
 "" Searching
@@ -81,7 +81,8 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-set guifont=Source_Code_Pro:h16
+"set guifont=Source_Code_Pro:h16
+set guifont=FiraMono-Regular:h16
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -89,10 +90,10 @@ if has('gui_running')
   set guioptions-=L
   set guioptions-=l
   set guioptions-=m
-  colorscheme base16-tomorrow
+  colorscheme jellybeans
 else
   set t_Co=256
-  colorscheme mustang
+  colorscheme jellybeans
 endif
 
 "" Commands
@@ -220,7 +221,6 @@ augroup configgroup
     autocmd BufEnter *.sh setlocal softtabstop=2
     autocmd BufEnter *.markdown setlocal wrap
     autocmd BufEnter *.markdown setlocal linebreak
-    autocmd BufRead,BufNewFile *.md setlocal spell
 augroup END
 
 " move backup into temp folder
