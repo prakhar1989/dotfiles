@@ -23,7 +23,6 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias be="bundle exec"
 alias start_server="python -m SimpleHTTPServer"
 alias almulla="python ~/Code/scripts/almulla.py && open /tmp/almulla.png"
-alias py="python"
 alias swift="xcrun swift"
 alias ipy="ipython"
 alias c="clear"
@@ -32,17 +31,13 @@ alias f='find . -iname'
 alias ducks='du -cksh * | sort -rn|head -11' # Lists folders and files sizes in the current folder
 alias top='top -o cpu'
 alias systail='tail -f /var/log/system.log'
-alias m='more'
-alias df='df -h'
 alias untar="tar xzfv"
 alias o="open"
 alias gpu="git push -u origin master"
 alias getip="curl ipinfo.io"
 alias django="python manage.py"
-alias hist='history | grep'
-
-# aliases for connecting to the servers
-alias r="~/Code/scripts/rackspace.sh"
+alias pass="echo kooj2jee | pbcopy | echo 'Success!'"
+alias r="cat ~/.ssh/config"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -68,4 +63,16 @@ export PATH=$PATH:$GOPATH/gae
 # set VI mode
 bindkey -v
 
+# write to output to tmpfile because of progress bar 
+transfer() { 
+  tmpfile=$( mktemp -t transferXXX ); 
+  curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile; 
+  cat $tmpfile; rm -f $tmpfile; 
+} 
+alias transfer=transfer
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# OPAM configuration
+. /Users/asrinivasan/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+eval `opam config env`

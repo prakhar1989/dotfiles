@@ -17,8 +17,8 @@ set encoding=utf-8
 filetype plugin indent on
 filetype plugin on
 
-"Powerline settings
-"let g:Powerline_symbols = 'fancy'
+"fuck you ex mode
+nnoremap Q <nop>
 
 "Bind :Q and :W to :q and :w respectively
 command! Q q
@@ -41,11 +41,6 @@ nnoremap L $
 "mapping leader
 let mapleader = ','
 
-"" ultisnips
-let g:UltiSnipsExpandTrigger="<leader>p"
-let g:UltiSnipsJumpForwardTrigger="<Down>"
-let g:UltiSnipsListSnippets="<Right>"
-
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -66,6 +61,7 @@ set number
 
 "" Whitespace
 set nowrap                      " dont wrap lines
+set expandtab                   " spaces as tabs
 set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
@@ -82,7 +78,7 @@ set gdefault                    " g flag is set on default
 "" Look
 set background=dark
 "set guifont=Source_Code_Pro:h16
-set guifont=FiraMono-Regular:h16
+set guifont=FiraMono-Regular:h13
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -106,11 +102,6 @@ au BufNewFile,BufRead *.ru set filetype=ruby
 "customizing the insert menu
 "http://goo.gl/UqCSV
 set completeopt=longest,menuone
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " editing vimrc in a jiffy
 " source $MYVIMRC reloads the saved $MYVIMRC
@@ -127,16 +118,12 @@ map <leader>n :NERDTreeToggle <cr>
 "Bufexplorer
 map <leader><leader>b :BufExplorer
 
-"ACK
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-
 "leader mappings
 nnoremap <tab> %
 vnoremap <tab> %
 map <Leader>w <C-w>w
 
 " Scratch {{{
-
 command! ScratchToggle call ScratchToggle()
 
 function! ScratchToggle() " {{{
@@ -163,9 +150,10 @@ nnoremap <F10> :b <C-Z>
 
 ""settings for ctrlp
 "let g:ctrlp_cmd = 'CtrlPBuffer'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*/venv/*,
 let g:clear_cache_on_exit = 0
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-T> :call <SID>SynStack()<CR>
@@ -189,6 +177,9 @@ let python_highlight_all=1
 "python indentation settings
 autocmd Bufread *.py setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
 
+"c indentation settings
+autocmd Bufread *.c setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
+
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-R> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
@@ -197,9 +188,6 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-
-" Vim slime settings
-let g:slime_target = "tmux"
 
 " SOME SETTINGS FROM HERE - http://dougblack.io/words/a-good-vimrc.html
 " language specific commands
@@ -230,4 +218,6 @@ set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
-" set writing mode
+" settings for rust
+let g:rustc_path = "/usr/local/bin/rustc"
+nnoremap <Leader><Leader>r :RustRun
