@@ -33,11 +33,13 @@ alias top='top -o cpu'
 alias systail='tail -f /var/log/system.log'
 alias untar="tar xzfv"
 alias o="open"
-alias gpu="git push -u origin master"
 alias getip="curl ipinfo.io"
 alias django="python manage.py"
 alias pass="echo kooj2jee | pbcopy | echo 'Success!'"
 alias r="cat ~/.ssh/config"
+alias venv="source venv/bin/activate"
+alias h="history | grep"
+
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -70,6 +72,11 @@ transfer() {
   cat $tmpfile; rm -f $tmpfile; 
 } 
 alias transfer=transfer
+
+youtube() {
+  youtube-dl $1 && say "Download complete"
+}
+alias youtube=youtube
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
