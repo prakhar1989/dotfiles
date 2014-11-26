@@ -78,7 +78,7 @@ set gdefault                    " g flag is set on default
 "" Look
 set background=dark
 "set guifont=Source_Code_Pro:h16
-set guifont=FiraMono-Regular:h13
+set guifont=FiraMono-Regular:h15
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -86,7 +86,7 @@ if has('gui_running')
   set guioptions-=L
   set guioptions-=l
   set guioptions-=m
-  colorscheme jellybeans
+  colorscheme base16-default
 else
   set t_Co=256
   colorscheme jellybeans
@@ -176,6 +176,9 @@ let python_highlight_all=1
 
 "python indentation settings
 autocmd Bufread *.py setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
+
+"go identation settings
+autocmd Bufread *.go setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
 
 "c indentation settings
 autocmd Bufread *.c setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent

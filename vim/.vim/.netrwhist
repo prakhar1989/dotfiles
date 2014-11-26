@@ -1,7 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/asrinivasan/Code/vagrant-stuff/content'
-let g:netrw_dirhist_2='/Users/asrinivasan/Code/vagrant-stuff/enet'
-let g:netrw_dirhist_3='/Users/asrinivasan/Code/vagrant-stuff/enet/templates'
-let g:netrw_dirhist_4='/Users/asrinivasan/Code/vagrant-stuff'
-let g:netrw_dirhist_5='/Users/asrinivasan/.oh-my-zsh'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/Users/asrinivasan/Code/go/src/github.com/prakhar1989/howistart'
+let g:netrw_dirhist_2='/Users/asrinivasan/Code/vagrant-stuff/content/templates'
