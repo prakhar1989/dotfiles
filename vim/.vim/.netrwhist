@@ -1,4 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/asrinivasan/Code/go/src/github.com/prakhar1989/howistart'
-let g:netrw_dirhist_2='/Users/asrinivasan/Code/vagrant-stuff/content/templates'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/asrinivasan/Code/PLPA'
+let g:netrw_dirhist_2='/Users/asrinivasan/Code/storm-class/ud381'
+let g:netrw_dirhist_3='/Users/asrinivasan/Documents/AndroidstudioProjects/ColorPhun/app'
+let g:netrw_dirhist_4='/Users/asrinivasan/Code/prakhar1989.github.com'
+let g:netrw_dirhist_5='/Users/asrinivasan/Code/prakhar1989.github.com/themes/.git'

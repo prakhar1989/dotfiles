@@ -77,8 +77,8 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-"set guifont=Source_Code_Pro:h16
-set guifont=FiraMono-Regular:h15
+set guifont=Source_Code_Pro:h14
+"set guifont=FiraMono-Regular:h13
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -212,6 +212,8 @@ augroup configgroup
     autocmd BufEnter *.sh setlocal softtabstop=2
     autocmd BufEnter *.markdown setlocal wrap
     autocmd BufEnter *.markdown setlocal linebreak
+    autocmd BufEnter *.md setlocal wrap
+    autocmd BufEnter *.md setlocal linebreak
 augroup END
 
 " move backup into temp folder
