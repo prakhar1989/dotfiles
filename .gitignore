@@ -27,3 +27,6 @@ Icon?
 cmus/.cmus/*.pl
 cmus/.cmus/cache
 cmus/.cmus/*history
+
+## vim
+.netrwhist

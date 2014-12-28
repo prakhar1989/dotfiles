@@ -77,7 +77,7 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-set guifont=Source_Code_Pro:h14
+set guifont=Source_Code_Pro:h15
 "set guifont=FiraMono-Regular:h13
 if has('gui_running')
   set guioptions-=T

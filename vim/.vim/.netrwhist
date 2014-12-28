@@ -1,7 +1,7 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/asrinivasan/Code/PLPA'
-let g:netrw_dirhist_2='/Users/asrinivasan/Code/storm-class/ud381'
-let g:netrw_dirhist_3='/Users/asrinivasan/Documents/AndroidstudioProjects/ColorPhun/app'
-let g:netrw_dirhist_4='/Users/asrinivasan/Code/prakhar1989.github.com'
-let g:netrw_dirhist_5='/Users/asrinivasan/Code/prakhar1989.github.com/themes/.git'
+let g:netrw_dirhist_1='/Users/asrinivasan/Code/vagrant-stuff/enet/misc'
+let g:netrw_dirhist_2='/Users/asrinivasan/Code/4clojure/foreclj'
+let g:netrw_dirhist_3='/Users/asrinivasan/.emacs.d'
+let g:netrw_dirhist_4='/Users/asrinivasan/.emacs.d/.git'
+let g:netrw_dirhist_5='/Users/asrinivasan/Code/4clojure/clj-spellchecker/.git'
