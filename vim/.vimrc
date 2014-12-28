@@ -118,6 +118,9 @@ map <leader>n :NERDTreeToggle <cr>
 "Bufexplorer
 map <leader><leader>b :BufExplorer
 
+"Vim Fireplace - Clojure
+map <leader><leader>e :Eval
+
 "leader mappings
 nnoremap <tab> %
 vnoremap <tab> %

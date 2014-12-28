@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/asrinivasan/Code/vagrant-stuff/enet/misc'
 let g:netrw_dirhist_2='/Users/asrinivasan/Code/4clojure/foreclj'
 let g:netrw_dirhist_3='/Users/asrinivasan/.emacs.d'
 let g:netrw_dirhist_4='/Users/asrinivasan/.emacs.d/.git'
 let g:netrw_dirhist_5='/Users/asrinivasan/Code/4clojure/clj-spellchecker/.git'
+let g:netrw_dirhist_6='/Users/asrinivasan/Code/4clojure/clj-spellchecker'
