@@ -62,7 +62,7 @@ set number
 "" Whitespace
 set nowrap                      " dont wrap lines
 set expandtab                   " spaces as tabs
-set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
 "" Searching
@@ -77,8 +77,8 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-set guifont=Source_Code_Pro:h15
-"set guifont=FiraMono-Regular:h13
+"set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+set guifont=Fira\ Code:h14
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -86,7 +86,7 @@ if has('gui_running')
   set guioptions-=L
   set guioptions-=l
   set guioptions-=m
-  colorscheme base16-default
+  colorscheme jellybeans
 else
   set t_Co=256
   colorscheme jellybeans
@@ -179,6 +179,9 @@ let python_highlight_all=1
 
 "python indentation settings
 autocmd Bufread *.py setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
+
+"python indentation settings
+autocmd Bufread *.html setlocal tabstop=2 shiftwidth=2 smarttab expandtab softtabstop=2 autoindent
 
 "go identation settings
 autocmd Bufread *.go setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
