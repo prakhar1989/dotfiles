@@ -77,7 +77,7 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-set guifont=Source\ Code\ Pro:h14
+set guifont=Source\ Code\ Pro:h15
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -226,3 +226,6 @@ set writebackup
 " settings for rust
 let g:rustc_path = "/usr/local/bin/rustc"
 nnoremap <Leader><Leader>r :RustRun
+
+" settings for Go
+nnoremap <Leader><Leader>r :GoRun
