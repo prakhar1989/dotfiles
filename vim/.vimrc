@@ -228,4 +228,4 @@ let g:rustc_path = "/usr/local/bin/rustc"
 nnoremap <Leader><Leader>r :RustRun
 
 " settings for Go
-nnoremap <Leader><Leader>r :GoRun
+nnoremap <Leader><Leader>g :GoRun
