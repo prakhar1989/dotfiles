@@ -14,8 +14,15 @@ set laststatus=2
 syntax enable
 set modelines=0
 set encoding=utf-8
+filetype indent on
 filetype plugin indent on
 filetype plugin on
+
+"This tells Vim not to bother redrawing during these scenarios, leading to faster macros.
+set lazyredraw
+
+"show the last command entered
+set showcmd
 
 "fuck you ex mode
 nnoremap Q <nop>
@@ -49,8 +56,9 @@ nnoremap <c-l> <c-w>l
 
 "folding settings
 set foldmethod=indent
+set foldlevelstart=10
 set foldnestmax=10
-set nofoldenable
+set foldenable
 set foldlevel=1
 
 "editing
@@ -85,7 +93,7 @@ if has('gui_running')
   set guioptions-=L
   set guioptions-=l
   set guioptions-=m
-  colorscheme mustang
+  colorscheme base16-default
 else
   set t_Co=256
   colorscheme jellybeans
@@ -229,3 +237,12 @@ nnoremap <Leader><Leader>r :RustRun
 
 " settings for Go
 nnoremap <Leader><Leader>g :GoRun
+
+" for wrapping
+nnoremap j gj
+nnoremap k gk
+nnoremap 0 g0
+nnoremap $ g$
+
+" for ag
+set runtimepath^=~/.vim/bundle/ag
