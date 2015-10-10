@@ -2,8 +2,8 @@
 > Prakhar does dotfiles!
 
 ## Looks
-![Image](https://dl.dropboxusercontent.com/u/9555677/dotfiles/terminal.png)
-![Image](https://dl.dropboxusercontent.com/u/9555677/dotfiles/vim.png)
+![Image](term.png)
+![Image](vim.png)
 
 ## Structure
 - `bash` - files required for the bash shell
