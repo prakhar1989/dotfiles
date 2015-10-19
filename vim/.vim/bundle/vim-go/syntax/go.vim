@@ -10,7 +10,7 @@
 "     let OPTION_NAME = 0
 "   in your ~/.vimrc file to disable particular options. You can also write:
 "     let OPTION_NAME = 1
-"   to enable particular options. 
+"   to enable particular options.
 "   At present, all options default to on, except highlight of:
 "   functions, methods and structs.
 "
@@ -25,6 +25,8 @@
 "     Highlights instances of tabs following spaces.
 "   - go_highlight_trailing_whitespace_error
 "     Highlights trailing white space.
+"   - go_highlight_string_spellcheck
+"     Specifies that strings should be spell checked
 
 " Quit when a (custom) syntax file was already loaded
 if exists("b:current_syntax")
@@ -52,7 +54,7 @@ if !exists("g:go_highlight_trailing_whitespace_error")
 endif
 
 if !exists("g:go_highlight_operators")
-	let g:go_highlight_operators = 1
+	let g:go_highlight_operators = 0
 endif
 
 if !exists("g:go_highlight_functions")
@@ -65,6 +67,14 @@ endif
 
 if !exists("g:go_highlight_structs")
 	let g:go_highlight_structs = 0
+endif
+
+if !exists("g:go_highlight_build_constraints")
+    let g:go_highlight_build_constraints = 0
+endif
+
+if !exists("g:go_highlight_string_spellcheck")
+  let g:go_highlight_string_spellcheck = 1
 endif
 
 syn case match
@@ -109,10 +119,10 @@ syn match       goDeclaration       /\<func\>/
 " Predefined functions and values
 syn keyword     goBuiltins          append cap close complex copy delete imag len
 syn keyword     goBuiltins          make new panic print println real recover
-syn keyword     goConstants         iota true false nil
+syn keyword     goBoolean           iota true false nil
 
 hi def link     goBuiltins          Keyword
-hi def link     goConstants         Keyword
+hi def link     goBoolean           Boolean
 
 " Comments; their contents
 syn keyword     goTodo              contained TODO FIXME XXX BUG
@@ -141,11 +151,18 @@ hi def link     goEscapeError       Error
 
 " Strings and their contents
 syn cluster     goStringGroup       contains=goEscapeOctal,goEscapeC,goEscapeX,goEscapeU,goEscapeBigU,goEscapeError
-syn region      goString            start=+"+ skip=+\\\\\|\\"+ end=+"+ contains=@goStringGroup
-syn region      goRawString         start=+`+ end=+`+
+if g:go_highlight_string_spellcheck != 0
+  syn region      goString            start=+"+ skip=+\\\\\|\\"+ end=+"+ contains=@goStringGroup,@Spell
+  syn region      goRawString         start=+`+ end=+`+ contains=@Spell
+else
+  syn region      goString            start=+"+ skip=+\\\\\|\\"+ end=+"+ contains=@goStringGroup
+  syn region      goRawString         start=+`+ end=+`+
+endif
+syn match       goFormatSpecifier   /%[-#0 +]*\%(\*\|\d\+\)\=\%(\.\%(\*\|\d\+\)\)*[vTtbcdoqxXUeEfgGsp]/ contained containedin=goString
 
 hi def link     goString            String
 hi def link     goRawString         String
+hi def link 	goFormatSpecifier   goSpecialString
 
 " Characters; their contents
 syn cluster     goCharacterGroup    contains=goEscapeOctal,goEscapeC,goEscapeX,goEscapeU,goEscapeBigU
@@ -201,7 +218,7 @@ endif
 " Extra types commonly seen
 if g:go_highlight_extra_types != 0
   syn match goExtraType /\<bytes\.\(Buffer\)\>/
-  syn match goExtraType /\<io\.\(Reader\|Writer\|ReadWriter\|ReadWriteCloser\)\>/
+  syn match goExtraType /\<io\.\(Reader\|ReadSeeker\|ReadWriter\|ReadCloser\|ReadWriteCloser\|Writer\|WriteCloser\|Seeker\)\>/
   syn match goExtraType /\<reflect\.\(Kind\|Type\|Value\)\>/
   syn match goExtraType /\<unsafe\.Pointer\>/
 endif
@@ -228,45 +245,58 @@ syn keyword     goTodo              contained NOTE
 hi def link     goTodo              Todo
 
 
-" Operators; 
+" Operators;
 if g:go_highlight_operators != 0
-	syn match goOperator /:=/
-	syn match goOperator />=/
-	syn match goOperator /<=/
-	syn match goOperator /==/
-	syn match goOperator /!=/
-	syn match goOperator /+=/
-	syn match goOperator /-=/
-	syn match goOperator /\s>\s/
-	syn match goOperator /\s<\s/
-	syn match goOperator /\s+\s/
-	syn match goOperator /\s-\s/
-	syn match goOperator /\s\*\s/
-	syn match goOperator /\s\/\s/
-	syn match goOperator /\s%\s/
+	" match single-char operators:          - + % < > ! & | ^ * =
+	" and corresponding two-char operators: -= += %= <= >= != &= |= ^= *= ==
+	syn match goOperator /[-+%<>!&|^*=]=\?/
+	" match / and /=
+	syn match goOperator /\/\%(=\|\ze[^/*]\)/
+	" match two-char operators:               << >> &^
+	" and corresponding three-char operators: <<= >>= &^=
+	syn match goOperator /\%(<<\|>>\|&^\)=\?/
+	" match remaining two-char operators: := && || <- ++ --
+	syn match goOperator /:=\|||\|<-\|++\|--/
+	" match ...
+	syn match goOperator /\.\.\./
 endif
 hi def link     goOperator					Operator
 
-" Functions; 
+" Functions;
 if g:go_highlight_functions != 0
 	syn match goFunction							/\(func\s\+\)\@<=\w\+\((\)\@=/
 	syn match goFunction							/\()\s\+\)\@<=\w\+\((\)\@=/
 endif
 hi def link     goFunction					Function
 
-" Methods; 
+" Methods;
 if g:go_highlight_methods != 0
 	syn match goMethod								/\(\.\)\@<=\w\+\((\)\@=/
 endif
 hi def link     goMethod						Type
 
-" Structs; 
+" Structs;
 if g:go_highlight_structs != 0
 	syn match goStruct								/\(.\)\@<=\w\+\({\)\@=/
 	syn match goStructDef							/\(type\s\+\)\@<=\w\+\(\s\+struct\s\+{\)\@=/
 endif
 hi def link     goStruct						Function
 hi def link     goStructDef         Function
+
+" Build Constraints
+if g:go_highlight_build_constraints != 0
+    syn keyword goBuildOs           contained ignore cgo android darwin dragonfly freebsd linux nacl netbsd openbsd plan9 solaris windows
+    syn keyword goBuildArch         contained 386 amd64 amd64p32 arm
+    syn match   goBuildDirective    display contained "+build"
+    syn region  goBuildComment      start="//\s*+build" end="$" contains=goBuildDirective,goBuildOs,goBuildArch
+    syn region  goBuildComment      start="/\*\s*+build" end="\*/" contains=goBuildDirective,goBuildOs,goBuildArch
+endif
+
+hi def link     goBuildComment      Comment
+hi def link     goBuildOs           Type
+hi def link     goBuildArch         Type
+hi def link     goBuildDirective    PreProc
+
 
 " Search backwards for a global declaration to start processing the syntax.
 "syn sync match goSync grouphere NONE /^\(const\|var\|type\|func\)\>/

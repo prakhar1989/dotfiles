@@ -1,4 +1,5 @@
 "Use Pathogen
+autocmd BufRead,BufNewFile *.go setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -188,7 +189,6 @@ let python_highlight_all=1
 autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
 autocmd BufRead,BufNewFile *.py set filetype=python
 autocmd BufRead,BufNewFile *.html setlocal tabstop=2 shiftwidth=2 smarttab expandtab softtabstop=2 autoindent
-autocmd BufRead,BufNewFile *.go setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
 autocmd BufRead,BufNewFile *.c setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
 
 " Show syntax highlighting groups for word under cursor
@@ -237,6 +237,13 @@ nnoremap <Leader><Leader>r :RustRun
 
 " settings for Go
 nnoremap <Leader><Leader>g :GoRun
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+let g:go_play_open_browser = 1
 
 " for wrapping
 nnoremap j gj
