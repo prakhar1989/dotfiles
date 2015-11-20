@@ -86,7 +86,7 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-set guifont=Source\ Code\ Pro:h15
+set guifont=PT\ Mono:h14
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -220,8 +220,9 @@ augroup configgroup
     autocmd BufEnter *.sh setlocal softtabstop=2
     autocmd BufEnter *.markdown setlocal wrap
     autocmd BufEnter *.markdown setlocal linebreak
-    autocmd BufEnter *.md setlocal wrap
+    autocmd BufEnter *.md setlocal wrap 
     autocmd BufEnter *.md setlocal linebreak
+    autocmd BufEnter *.md setlocal spell spelllang=en_us
 augroup END
 
 " move backup into temp folder
@@ -253,3 +254,8 @@ nnoremap $ g$
 
 " for ag
 set runtimepath^=~/.vim/bundle/ag
+
+" for ocaml indent
+"set rtp^="/Users/prakhar/.opam/system/share/ocp-indent/vim"
+set rtp+="/Users/prakhar/.vim/bundle/ocp-indent-vim"
+autocmd FileType ocaml source /Users/prakhar/.opam/system/share/ocp-indent/vim/indent/ocaml.vim
