@@ -246,6 +246,12 @@ let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 let g:go_play_open_browser = 1
 
+" settings for ocaml
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+set rtp+=~/.vim/bundle/ocp-indent-vim
+au FileType ocaml call SuperTabSetDefaultCompletionType("<c-x><c-o>")
+
 " for wrapping
 nnoremap j gj
 nnoremap k gk
@@ -255,7 +261,3 @@ nnoremap $ g$
 " for ag
 set runtimepath^=~/.vim/bundle/ag
 
-" for ocaml indent
-"set rtp^="/Users/prakhar/.opam/system/share/ocp-indent/vim"
-set rtp+="/Users/prakhar/.vim/bundle/ocp-indent-vim"
-autocmd FileType ocaml source /Users/prakhar/.opam/system/share/ocp-indent/vim/indent/ocaml.vim
