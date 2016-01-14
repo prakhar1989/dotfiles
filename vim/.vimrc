@@ -251,6 +251,7 @@ let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
 set rtp+=~/.vim/bundle/ocp-indent-vim
 au FileType ocaml call SuperTabSetDefaultCompletionType("<c-x><c-o>")
+autocmd BufWritePre *.ml :MerlinErrorCheck
 
 " for wrapping
 nnoremap j gj
@@ -260,4 +261,3 @@ nnoremap $ g$
 
 " for ag
 set runtimepath^=~/.vim/bundle/ag
-
