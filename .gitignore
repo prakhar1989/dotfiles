@@ -30,3 +30,4 @@ cmus/.cmus/*history
 
 ## vim
 .netrwhist
+.DS_Store

@@ -252,6 +252,7 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
 set rtp+=~/.vim/bundle/ocp-indent-vim
 au FileType ocaml call SuperTabSetDefaultCompletionType("<c-x><c-o>")
 autocmd BufWritePre *.ml :MerlinErrorCheck
+nnoremap <Leader><Leader>t :MerlinTypeOf
 
 " for wrapping
 nnoremap j gj
