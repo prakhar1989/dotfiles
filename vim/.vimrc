@@ -191,6 +191,8 @@ autocmd BufRead,BufNewFile *.py set filetype=python
 autocmd BufRead,BufNewFile *.html setlocal tabstop=2 shiftwidth=2 smarttab expandtab softtabstop=2 autoindent
 autocmd BufRead,BufNewFile *.c setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
 
+autocmd BufRead,BufNewFile *.jsjs set filetype=scala
+
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-R> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
