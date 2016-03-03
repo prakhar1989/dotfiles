@@ -123,6 +123,14 @@ let NERDChristmasTree = 1
 let NERDTreeWinPos = "left"
 map <leader>n :NERDTreeToggle <cr>
 
+" highlight nbsp and trailing whitespace
+" thanks to https://github.com/henrik/dotfiles
+autocmd BufNewFile,BufRead * highlight nbsp ctermbg=Red
+autocmd BufNewFile,BufRead * match nbsp "[\xc2\xa0]"
+
+autocmd BufNewFile,BufRead * highlight trailing_spaces ctermbg=Red
+autocmd BufNewFile,BufRead * match trailing_spaces /\s\+$/
+
 "Bufexplorer
 map <leader><leader>b :BufExplorer
 
@@ -262,5 +270,5 @@ nnoremap k gk
 nnoremap 0 g0
 nnoremap $ g$
 
-" for ag
+" for the silver surfer (ag)
 set runtimepath^=~/.vim/bundle/ag
