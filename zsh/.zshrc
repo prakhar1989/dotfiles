@@ -114,19 +114,27 @@ alias venv="source venv/bin/activate"
 alias h="history | grep"
 alias pc="pbcopy"
 alias pv="pbpaste"
+alias vim="/usr/local/bin/vim"
 
-# write to output to tmpfile because of progress bar 
-transfer() { 
-  tmpfile=$( mktemp -t transferXXX ); 
+# write to output to tmpfile because of progress bar
+transfer() {
+  tmpfile=$( mktemp -t transferXXX );
   curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile; 
-  cat $tmpfile; rm -f $tmpfile; 
-} 
+  cat $tmpfile; rm -f $tmpfile;
+}
 alias transfer=transfer
 
 youtube() {
   youtube-dl $1 && say "Download complete"
 }
 alias youtube=youtube
+
+# upload files from command line
+upload() {
+    url=$(curl -s --upload-file ./$1 https://transfer.sh/$1)
+    echo $url | pbcopy && echo "$url has been copied to your clipboard!"
+}
+alias upload=upload
 
 function clip { [ -t 0 ] && pbpaste || pbcopy; }
 
@@ -141,3 +149,6 @@ source /usr/local/bin/aws_zsh_completer.sh
 
 # for iterm shell integration
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+
+# for rbenv
+eval "$(rbenv init -)"
