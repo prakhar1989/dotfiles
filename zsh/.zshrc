@@ -116,14 +116,6 @@ alias pc="pbcopy"
 alias pv="pbpaste"
 alias vim="/usr/local/bin/vim"
 
-# write to output to tmpfile because of progress bar
-transfer() {
-  tmpfile=$( mktemp -t transferXXX );
-  curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile; 
-  cat $tmpfile; rm -f $tmpfile;
-}
-alias transfer=transfer
-
 youtube() {
   youtube-dl $1 && say "Download complete"
 }
@@ -131,8 +123,9 @@ alias youtube=youtube
 
 # upload files from command line
 upload() {
-    url=$(curl -s --upload-file ./$1 https://transfer.sh/$1)
-    echo $url | pbcopy && echo "$url has been copied to your clipboard!"
+    tmpfile=$( mktemp -t transferXXX );
+    curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile; 
+    cat $tmpfile && cat $tmpfile | pbcopy && rm -f $tmpfile;
 }
 alias upload=upload
 
