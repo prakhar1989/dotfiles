@@ -100,10 +100,6 @@ else
   colorscheme jellybeans
 endif
 
-"" Commands
-source $VIMRUNTIME/mswin.vim    "allows standard windows copy/paste keystrokes
-behave mswin                    "mouse behavior like windows
-
 "read .ru files as rb
 au BufNewFile,BufRead *.ru set filetype=ruby
 
@@ -171,7 +167,7 @@ nnoremap <F10> :b <C-Z>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*/venv/*,
 let g:clear_cache_on_exit = 0
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|_build'
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-T> :call <SID>SynStack()<CR>
@@ -186,13 +182,10 @@ endfunc
 let g:user_zen_expandabbr_key = '<leader>o'
 let g:use_zen_complete_tag = 1
 
-"" less to css
-nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
-
 "" python syntax-highlight all
 let python_highlight_all=1
 
-"python indentation settings
+"file-specific indentation settings
 autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
 autocmd BufRead,BufNewFile *.py set filetype=python
 autocmd BufRead,BufNewFile *.html setlocal tabstop=2 shiftwidth=2 smarttab expandtab softtabstop=2 autoindent
