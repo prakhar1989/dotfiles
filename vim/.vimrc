@@ -19,6 +19,9 @@ filetype indent on
 filetype plugin indent on
 filetype plugin on
 
+"toggle pastemode with <F2>
+set pastetoggle=<F2>
+
 "This tells Vim not to bother redrawing during these scenarios, leading to faster macros.
 set lazyredraw
 

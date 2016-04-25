@@ -67,7 +67,9 @@ export PATH="/usr/local/go/bin:$PATH:$GOPATH/bin"
 
 # for scala
 export SCALA_HOME="/usr/local/share/scala-2.11.7"
-export PATH="$PATH:$SCALA_HOME/bin"
+export CS_PATH="/Users/Prakhar/bin"
+export PATH="$PATH:$SCALA_HOME/bin:$CS_PATH"
+
 
 # for android
 export ANDROID_HOME=/usr/local/opt/android-sdk
@@ -128,6 +130,18 @@ upload() {
     cat $tmpfile && cat $tmpfile | pbcopy && rm -f $tmpfile;
 }
 alias upload=upload
+
+
+docker-cleanup() {
+    # clean up exited containers
+    docker rm -v $(docker ps -a -q -f status=exited)
+
+    # clean up dangling images
+    docker rmi $(docker images -f "dangling=true" -q)
+
+    # clean up volumes
+    docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes
+}
 
 function clip { [ -t 0 ] && pbpaste || pbcopy; }
 
