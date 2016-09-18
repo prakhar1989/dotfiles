@@ -74,6 +74,9 @@ export PATH="$PATH:$SCALA_HOME/bin:$CS_PATH"
 # for android
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
+# for maven
+export PATH="$PATH:/Users/prakhar/Code/apache-maven-3.3.9/bin"
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -123,10 +126,16 @@ youtube() {
 }
 alias youtube=youtube
 
+getsong() {
+  youtube-dl --extract-audio --audio-format mp3 $1
+  say -v vicki "Download complete"
+}
+alias getsong=getsong
+
 # upload files from command line
 upload() {
     tmpfile=$( mktemp -t transferXXX );
-    curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile; 
+    curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
     cat $tmpfile && cat $tmpfile | pbcopy && rm -f $tmpfile;
 }
 alias upload=upload
@@ -159,3 +168,12 @@ test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_in
 
 # for rbenv
 eval "$(rbenv init -)"
+
+## for tag (https://github.com/aykamko/tag)
+if (( $+commands[tag] )); then
+  tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
+  alias ag=tag
+fi
+
+## for autocomplete https://github.com/zsh-users/zsh-completions
+fpath=(/usr/local/share/zsh-completions $fpath)

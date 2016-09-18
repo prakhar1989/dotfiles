@@ -89,7 +89,7 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-set guifont=PT\ Mono:h14
+set guifont=PT\ Mono:h13
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -192,8 +192,6 @@ let python_highlight_all=1
 autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
 autocmd BufRead,BufNewFile *.py set filetype=python
 autocmd BufRead,BufNewFile *.html setlocal tabstop=2 shiftwidth=2 smarttab expandtab softtabstop=2 autoindent
-autocmd BufRead,BufNewFile *.c setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
-
 autocmd BufRead,BufNewFile *.jsjs set filetype=scala
 
 " Show syntax highlighting groups for word under cursor
@@ -228,6 +226,7 @@ augroup configgroup
     autocmd BufEnter *.md setlocal wrap 
     autocmd BufEnter *.md setlocal linebreak
     autocmd BufEnter *.md setlocal spell spelllang=en_us
+    autocmd BufEnter *.c setlocal tabstop=8 shiftwidth=8 softtabstop=8 textwidth=80 noexpandtab cindent
 augroup END
 
 " move backup into temp folder
