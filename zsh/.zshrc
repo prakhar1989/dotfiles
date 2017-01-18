@@ -5,7 +5,7 @@ export ZSH=/Users/prakhar/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="pure"
+ZSH_THEME="arrow"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -70,6 +70,9 @@ export SCALA_HOME="/usr/local/share/scala-2.11.7"
 export CS_PATH="/Users/Prakhar/bin"
 export PATH="$PATH:$SCALA_HOME/bin:$CS_PATH"
 
+# for python 3.5
+export PYPATH="/Library/Frameworks/Python.framework/Versions/3.5/bin"
+export PATH="$PATH:$PYPATH"
 
 # for android
 export ANDROID_HOME=/usr/local/opt/android-sdk
@@ -167,7 +170,7 @@ source /usr/local/bin/aws_zsh_completer.sh
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
 # for rbenv
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 
 ## for tag (https://github.com/aykamko/tag)
 if (( $+commands[tag] )); then
@@ -175,5 +178,10 @@ if (( $+commands[tag] )); then
   alias ag=tag
 fi
 
+## for rustup
+source $HOME/.cargo/env
+
 ## for autocomplete https://github.com/zsh-users/zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

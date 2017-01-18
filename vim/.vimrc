@@ -1,7 +1,38 @@
+" Loading plugins via Vim-plug
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+call plug#begin('~/.vim/plugged')
+
+" clojure specific plugins
+Plug 'guns/vim-clojure-highlight'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'guns/vim-clojure-static'
+
+" scala dev
+Plug 'derekwyatt/vim-scala'
+
+" javascript
+"Plug 'othree/yajs.vim'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+
+" tab completions
+Plug 'ervandew/supertab'
+
+Plug 'rust-lang/rust.vim'
+
+" orgasmic commenting
+Plug 'scrooloose/nerdcommenter'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+call plug#end()
+
 "Use Pathogen
-autocmd BufRead,BufNewFile *.go setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
 
 "Typo checks
 iabbrev teh the
@@ -81,15 +112,15 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
-set smartcase                   " except when you tell vim 
+set smartcase                   " except when you tell vim
 set gdefault                    " g flag is set on default
 
 " clear the search buffer when hitting return
-:nnoremap <CR> :nohlsearch<cr> 
+nnoremap <CR> :nohlsearch<cr>
 
 "" Look
 set background=dark
-set guifont=PT\ Mono:h13
+"set guifont=Sauce\ Code\ Powerline\ Regular:h23
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -192,6 +223,7 @@ let python_highlight_all=1
 autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
 autocmd BufRead,BufNewFile *.py set filetype=python
 autocmd BufRead,BufNewFile *.html setlocal tabstop=2 shiftwidth=2 smarttab expandtab softtabstop=2 autoindent
+autocmd BufRead,BufNewFile *.go setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
 autocmd BufRead,BufNewFile *.jsjs set filetype=scala
 
 " Show syntax highlighting groups for word under cursor
@@ -226,7 +258,7 @@ augroup configgroup
     autocmd BufEnter *.md setlocal wrap 
     autocmd BufEnter *.md setlocal linebreak
     autocmd BufEnter *.md setlocal spell spelllang=en_us
-    autocmd BufEnter *.c setlocal tabstop=8 shiftwidth=8 softtabstop=8 textwidth=80 noexpandtab cindent
+    autocmd BufEnter *.c setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab cindent
 augroup END
 
 " move backup into temp folder
