@@ -181,6 +181,8 @@ fi
 ## for rustup
 source $HOME/.cargo/env
 
+alias vim=nvim
+
 ## for autocomplete https://github.com/zsh-users/zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 

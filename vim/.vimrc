@@ -1,5 +1,4 @@
 " Loading plugins via Vim-plug
-" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.vim/plugged')
 
 " clojure specific plugins
@@ -7,16 +6,8 @@ Plug 'guns/vim-clojure-highlight'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'guns/vim-clojure-static'
 
-" scala dev
-Plug 'derekwyatt/vim-scala'
-
-" javascript
-"Plug 'othree/yajs.vim'
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-
 " tab completions
 Plug 'ervandew/supertab'
-
 Plug 'rust-lang/rust.vim'
 
 " orgasmic commenting
@@ -25,6 +16,8 @@ Plug 'scrooloose/nerdcommenter'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'derekwyatt/vim-scala',  { 'for' : 'scala' }
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
