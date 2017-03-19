@@ -19,6 +19,18 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'derekwyatt/vim-scala',  { 'for' : 'scala' }
 
+" Go dev
+Plug 'fatih/vim-go', { 'for': 'go' }
+
+" better code searching
+Plug 'mileszs/ack.vim'
+
+" fancy Git support
+Plug 'tpope/vim-fugitive'
+
+" Visualize your Vim undo tree.
+Plug 'sjl/gundo.vim'
+
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
@@ -35,11 +47,17 @@ iabbrev functoin function
 iabbrev fucntion function
 
 set nocompatible
+
 set laststatus=2
-syntax enable
+
+syntax enable "enable syntax processing
+
 set modelines=0
+
 set encoding=utf-8
-filetype indent on
+
+" Indentation settings
+filetype indent on              " load filetype-specific indent files
 filetype plugin indent on
 filetype plugin on
 
@@ -64,7 +82,7 @@ set visualbell t_vb=
 set novisualbell
 
 "better mapping for esc
-imap jk <ESC>
+imap jj <ESC>
 
 "better use of space in normal mode
 nnoremap <space> viw
@@ -76,6 +94,15 @@ nnoremap L $
 "mapping leader
 let mapleader = ','
 
+" toggle gundo
+nnoremap <leader>u :GundoToggle<CR>
+
+" FZF
+nnoremap <leader>f :FZF<CR>
+
+" save session - open with vim -S
+nnoremap <leader>s :mksession<CR>
+
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -83,22 +110,23 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 "folding settings
-set foldmethod=indent
-set foldlevelstart=10
-set foldnestmax=10
-set foldenable
-set foldlevel=1
+set foldenable                  " enable folding
+set foldmethod=indent           " fold based on indent level
+set foldlevelstart=10           " open most folds by default
+set foldnestmax=10              " 10 nested fold max
 
 "editing
 set ruler                       " show the co-ordinates of the cursor
 set cursorline                  " highlight the line with the cursor
-set scrolloff=3                 " provide some context for editing 
-set number
+set scrolloff=3                 " provide some context for editing
+set number                      " turn on line numbering
+set showmatch                   " highlight matching [{()}]
 
 "" Whitespace
 set nowrap                      " dont wrap lines
-set expandtab                   " spaces as tabs
-set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
+set expandtab                   " tabs are spaces
+set tabstop=2                   " number of visual spaces per TAB
+set softtabstop=2               " number of spaces in tab when editing
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
 "" Searching
@@ -189,22 +217,6 @@ set wildchar=<Tab> wildmenu wildmode=full
 set wildcharm=<C-Z>
 nnoremap <F10> :b <C-Z>
 
-""settings for ctrlp
-"let g:ctrlp_cmd = 'CtrlPBuffer'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*/venv/*,
-let g:clear_cache_on_exit = 0
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|_build'
-
-" Show syntax highlighting groups for word under cursor
-nmap <C-S-T> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-
 "" zencoding bindings
 let g:user_zen_expandabbr_key = '<leader>o'
 let g:use_zen_complete_tag = 1
@@ -214,19 +226,10 @@ let python_highlight_all=1
 
 "file-specific indentation settings
 autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
-autocmd BufRead,BufNewFile *.py set filetype=python
 autocmd BufRead,BufNewFile *.html setlocal tabstop=2 shiftwidth=2 smarttab expandtab softtabstop=2 autoindent
 autocmd BufRead,BufNewFile *.go setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
 autocmd BufRead,BufNewFile *.jsjs set filetype=scala
-
-" Show syntax highlighting groups for word under cursor
-nmap <C-S-R> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
+autocmd BufRead,BufNewFile *.soy set filetype=html
 
 " SOME SETTINGS FROM HERE - http://dougblack.io/words/a-good-vimrc.html
 " language specific commands
@@ -248,7 +251,7 @@ augroup configgroup
     autocmd BufEnter *.sh setlocal softtabstop=2
     autocmd BufEnter *.markdown setlocal wrap
     autocmd BufEnter *.markdown setlocal linebreak
-    autocmd BufEnter *.md setlocal wrap 
+    autocmd BufEnter *.md setlocal wrap
     autocmd BufEnter *.md setlocal linebreak
     autocmd BufEnter *.md setlocal spell spelllang=en_us
     autocmd BufEnter *.c setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab cindent
@@ -275,19 +278,20 @@ let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 let g:go_play_open_browser = 1
 
-" settings for ocaml
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
-set rtp+=~/.vim/bundle/ocp-indent-vim
-au FileType ocaml call SuperTabSetDefaultCompletionType("<c-x><c-o>")
-autocmd BufWritePre *.ml :MerlinErrorCheck
-nnoremap <Leader><Leader>t :MerlinTypeOf
-
-" for wrapping
+" movement
 nnoremap j gj
 nnoremap k gk
 nnoremap 0 g0
 nnoremap $ g$
+" highlight last inserted text
+nnoremap gV `[v`]
 
 " for the silver surfer (ag)
 set runtimepath^=~/.vim/bundle/ag
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" for fzf
+let g:fzf_command_prefix = 'fzf'
