@@ -1,17 +1,26 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/prakhar/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="arrow"
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/prsrivastav/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="af-magic"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
@@ -39,64 +48,41 @@ ZSH_THEME="arrow"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-
-# User configuration
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export MANPATH="/usr/local/man:$MANPATH"
-
-# for latex
-export INFOPATH=/usr/local/texlive/2015/texmf-dist/doc/info
-export MANPATH="/usr/local/texlive/2015/texmf-dist/doc/man:$MANPATH"
-export PATH="/usr/local/texlive/2015/bin/x86_64-darwin:$PATH"
-
-# for go
-export GOPATH=$HOME/Code/go-workspace
-export PATH="/usr/local/go/bin:$PATH:$GOPATH/bin"
-
-# for scala
-export SCALA_HOME="/usr/local/share/scala-2.11.7"
-export CS_PATH="/Users/Prakhar/bin"
-export PATH="$PATH:$SCALA_HOME/bin:$CS_PATH"
-
-# for python 3.5
-export PYPATH="/Library/Frameworks/Python.framework/Versions/3.5/bin"
-export PATH="$PATH:$PYPATH"
-
-# for android
-export ANDROID_HOME=/usr/local/opt/android-sdk
-
-# for maven
-export PATH="$PATH:/Users/prakhar/Code/apache-maven-3.3.9/bin"
+plugins=(
+  git
+)
 
 source $ZSH/oh-my-zsh.sh
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# for homebrew
+brewprefix=/usr/local/brew
+export PATH="$brewprefix/bin:$brewprefix/sbin:$PATH"
+export MANPATH="$brewprefix/share/man:$MANPATH"
+unset brewprefix
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# for various sdks
+sdkdir=/Users/prsrivastav/sdks
+export PATH="$PATH:$sdkdir/flutter/bin:$sdkdir/google-cloud-sdk/bin"
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# for go
+export PATH="$PATH:$HOME/go/bin"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# for fastlane
+export PATH="$HOME/.fastlane/bin:$PATH"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -160,12 +146,6 @@ function clip { [ -t 0 ] && pbpaste || pbcopy; }
 # for autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
-# OPAM configuration
-. /Users/prakhar/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-# aws autocompletion
-source /usr/local/bin/aws_zsh_completer.sh
-
 # for iterm shell integration
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
@@ -180,8 +160,6 @@ fi
 
 ## for rustup
 source $HOME/.cargo/env
-
-alias vim=nvim
 
 ## for autocomplete https://github.com/zsh-users/zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
